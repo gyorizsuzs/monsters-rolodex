@@ -1,5 +1,5 @@
 /* import { Component } from 'react'; */
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent } from 'react';
 
 import './search-box.styles.css';
 
@@ -36,10 +36,13 @@ const Adress: Adress = {
   region: 'jbsdfiv',
 }; */
 
+// you can either use ChangeEventHandler to specify the return value of <T> element or use ChangeEvent where you type out the event where you return the element (the second is better, cleaner)
 type SearchBoxProps = {
   className: string;
   placeholder?: string;
-  onChangeHandler: /* (a: string) => void */ ChangeEventHandler<HTMLInputElement>;
+  onChangeHandler: /* (a: string) => void */ (
+    event: ChangeEvent<HTMLInputElement>
+  ) => void;
 };
 
 const SearchBox = ({
